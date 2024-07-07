@@ -17,6 +17,6 @@
     <body class="font-sans antialiased dark:text-white/50">
 
     <div id="app"></div>
-
+    <div id="footer"></div>
     </body>
 </html>

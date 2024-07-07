@@ -7,8 +7,9 @@
   
   <script>
   import Menu from './Pages/Home.vue'
-  
+  import Footer from './Pages/Footer.vue'
   export default {
+    
     name: 'App',
     components: {
       Menu
