@@ -1,34 +1,41 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('[data-scroll]').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('data-scroll');
-            const targetSection = document.getElementById(targetId);
+export default {
 
-            // Add fade-in class to the target section
-            targetSection.classList.remove('hidden');
-            targetSection.classList.add('fade-in');
-
-            // Scroll to the target section
-            window.scrollTo({
-                top: targetSection.offsetTop,
-                behavior: 'smooth'
-            });
+    methods: {
+      submitForm() {
+        // Handle form submission
+        console.log('Form submitted:', this.form)
+        // Reset form after submission
+        this.form = { name: '', email: '', message: '' }
+      },
+      handleScroll() {
+        const fadeElements = document.querySelectorAll('.fade-in');
+        fadeElements.forEach(element => {
+          const elementTop = element.getBoundingClientRect().top;
+          const elementBottom = element.getBoundingClientRect().bottom;
+          if (elementTop < window.innerHeight && elementBottom >= 0) {
+            element.classList.add('appear');
+          }
         });
-    });
-
-    // Intersection Observer to handle scrolling effects
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.remove('hidden');
-                entry.target.classList.add('fade-in');
-            }
+      }
+    },
+    mounted() {
+      // Smooth scroll functionality
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').substring(1);
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+          }
         });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('section').forEach(section => {
-        observer.observe(section);
-    });
-});
+      });
+  
+      // Fade-in functionality
+      this.handleScroll();
+      window.addEventListener('scroll', this.handleScroll);
+    },
+    beforeUnmount() {
+      window.removeEventListener('scroll', this.handleScroll);
+    }
+  }
