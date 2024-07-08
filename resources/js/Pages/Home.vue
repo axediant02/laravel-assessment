@@ -211,7 +211,7 @@
                                 <main class="container mx-auto px-4 py-8">
                                     <section id="contact" class="text-center">
                                         <h2 class="text-3xl mb-8">Contact Us</h2>
-                                        <form @submit.prevent="submitForm" class="flex flex-col space-y-4 items-center">
+                                        <form @submit.prevent="submitForm" class="flex flex-col space-y-4 items-center text-black">
                                             <input
                                                 v-model="form.name"
                                                 type="text"
