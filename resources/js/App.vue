@@ -1,13 +1,12 @@
 <template>
     <div id="app">
-      <Menu :items="menuItems" />
+      <Menu :items="menuItems"/>
       <router-view></router-view>
     </div>
   </template>
   
   <script>
   import Menu from './Pages/Home.vue'
-  import Footer from './Pages/Footer.vue'
   export default {
     
     name: 'App',
@@ -20,7 +19,9 @@
           { name: 'Home', link: '/' },
           { name: 'About', link: '/about' },
           { name: 'Services', link: '/services' },
-          { name: 'Contact', link: '/contact' }
+          { name: 'Contact', link: '/contact' },
+          { name: 'Contact', link: '/contact' },
+          { name: 'GetStarted', link: '/getstarted' }
         ]
       }
     }

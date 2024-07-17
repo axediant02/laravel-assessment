@@ -6,7 +6,8 @@ export default {
           { href: '#home', scroll: 'home', text: 'Home' },
           { href: '#about', scroll: 'about', text: 'About' },
           { href: '#services', scroll: 'services', text: 'Services' },
-          { href: '#contact', scroll: 'contact', text: 'Contact' }
+          { href: '#contact', scroll: 'contact', text: 'Contact' },
+          { href: '#getstarted', scroll: 'getstarted', text: 'Get Started' }
         ],
         aboutContent: 'At BCD, were not just software developers - were digital alchemists. Founded in 2015 by three caffeine-fueled college friends, weve grown from a dorm room startup to a team of 50+ passionate tech wizards.',
         servicesContent: 'This is the services section. Here you can learn more about what we offer.',

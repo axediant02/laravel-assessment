@@ -7,7 +7,6 @@
             <img class="pl-10" src="/resources/assets/logo1.png" alt="" srcset="">
                 <div class="container mx-auto flex justify-between items-center">
                     <div class="text-lg font-semibold">
-                        <!-- <a href="#" class="hover:text-gray-400">BCD</a> -->
                     </div>
                     <ul class="flex space-x-4">
                         <li v-for="item in navItems" :key="item.href">
@@ -46,7 +45,7 @@
                             class="min-h-screen bg-gray-200 py-20 flex items-center text-black">
                             <div class="container mx-auto flex justify-between ">
                                 <div
-                                    class="about-content w-1/2 text-justify p-4 border-2 dark:border-gray-700 border-sky-500 rounded-md bg-gray-300 w-2/5">
+                                    class="about-content w-1/2 text-justify p-5 border-sky-500 rounded-md bg-gray-300 w-2/5">
                                     <h2 class="text-5xl font-bold mb-4 text-sky-500 ">About Us</h2>
                                     <p class="text-xl">
                                         At BCD, we're not just software developers - we're digital alchemists. Founded
@@ -91,10 +90,10 @@
                                 <div class="container mx-auto text-center p-6">
 
                                     <div
-                                        class="service-container border dark:bg-gray-400 dark:border-gray-700 rounded-md">
-                                        <h2 class="text-4xl font-bold mb-4 text-sky-500">Our Services</h2>
+                                        class="service-container border dark:bg-gray-400 rounded-md">
+                                        <h2 class="text-4xl font-bold mb-4 dark:text-white">Our Services</h2>
 
-                                        <p class="mb-8 ">At Software Design & Development, we offer a comprehensive
+                                        <p class="mb-8 dark:text-white">At Software Design & Development, we offer a comprehensive
                                             suite of services designed to meet your digital needs. Our team of experts
                                             brings innovation, creativity, and technical expertise to every project,
                                             ensuring that we deliver exceptional results every time. Whether you're looking
@@ -103,11 +102,13 @@
                                             help you succeed.?</p>
                                     </div>
                                     <div class="service-offer p-6">
+
                                         <!-- Changed to flex-row and added space-x-4 for horizontal spacing -->
                                         <div class="card-container flex flex-row justify-center space-x-4">
+
                                             <!-- Removed extra nested divs and adjusted width -->
                                             <div
-                                                class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-400 dark:border-gray-700">
+                                                class="max-w-sm p-6 bg-white border-gray-200 rounded-lg shadow dark:bg-gray-400 dark:border-gray-700">
                                                 <a href="#">
                                                     <h5
                                                         class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white hover:underline ">Web Development
@@ -139,7 +140,7 @@
                                             </div>
 
                                             <div
-                                                class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-400 dark:border-gray-700">
+                                                class="max-w-sm p-6 bg-white rounded-lg shadow dark:bg-gray-400 dark:border-gray-700">
 
                                                 <a href="#">
                                                     <h5
@@ -148,7 +149,8 @@
                                                 <p class="mb-3 font-normal text-gray-700 text-white">"Stay connected and engaged
                                                     with your audience on the go. Our mobile app development services offer custom
                                                     solutions tailored to your business needs. We build apps that are intuitive,
-                                                    reliable, and designed to provide an exceptional user experience.</p>
+                                                    reliable, and designed to provide an exceptional user experience.
+                                                    <br></p>
                                                 <a
                                                     href="#"
                                                     class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -170,7 +172,7 @@
                                             </div>
 
                                             <div
-                                                class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-400 dark:border-gray-700">
+                                                class="max-w-sm p-6 bg-white rounded-lg shadow dark:bg-gray-400 dark:border-gray-700">
 
                                                 <a href="#">
                                                     <h5
@@ -246,6 +248,7 @@
                             <footer class="bg-gray-800 text-white py-8">
                                 <div class="container mx-auto px-4">
                                     <div class="flex flex-wrap justify-between items-center">
+                                        
                                         <!-- Contact Information -->
                                         <div class="w-full md:w-1/3 mb-6 md:mb-0">
                                             <h3 class="text-xl font-bold mb-2">Reach Me Out </h3>
