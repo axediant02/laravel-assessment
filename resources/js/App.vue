@@ -2,29 +2,24 @@
     <div id="app">
       <Menu :items="menuItems"/>
       <router-view></router-view>
+      <Login/>
     </div>
   </template>
   
   <script>
   import Menu from './Pages/Home.vue'
+  // import Login from './Pages/Login.vue'
   export default {
     
     name: 'App',
     components: {
       Menu
     },
-    data() {
-      return {
-        menuItems: [
-          { name: 'Home', link: '/' },
-          { name: 'About', link: '/about' },
-          { name: 'Services', link: '/services' },
-          { name: 'Contact', link: '/contact' },
-          { name: 'Contact', link: '/contact' },
-          { name: 'GetStarted', link: '/getstarted' }
-        ]
-      }
-    }
+
+    // components:{
+    //   Login
+    // }
+    
   }
   </script>
   
