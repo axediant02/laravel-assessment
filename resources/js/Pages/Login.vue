@@ -1,32 +1,55 @@
 <template>
-  <div class="bg-gray-100 flex items-center justify-center min-h-screen">
-    <div class="bg-white p-8 rounded-lg shadow-lg w-96">
-      <h2 class="text-2xl font-bold mb-6 text-gray-800 text-center">Login</h2>
-      <form @submit.prevent="submitForm">
-        <div class="mb-4">
-          <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
-          <input type="email" v-model="email" id="email" name="email"
-            class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required>
-        </div>
-        <div class="mb-6">
-          <label for="password" class="block text-gray-700 font-semibold mb-2">Password</label>
-          <input type="password" v-model="password" id="password" name="password"
-            class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required>
-        </div>
-        <v-btn color="primary w-100">Log-in</v-btn>
-      </form>
-      <p class="pt-2 flex justify-center">Didn't have an account?<router-link to="/signup"><v-text class="text-blue"> Register</v-text></router-link></p>
-    </div>
-  </div>
+  <v-container class="d-flex justify-center p-5">
+    <v-card class="w-50">
+      <v-card-title tag="h1" class="fw-bold">Login</v-card-title>
+      <v-card-text>
+        <v-form @submit.prevent="login">
+          <v-text-field v-model="email" label="Email" required></v-text-field>
+          <v-text-field v-model="password" label="Password" type="password" required></v-text-field>
+
+          <v-btn color="primary" type="submit">Login</v-btn>
+
+          <p> Don't Have an Account? <router-link to="/signup">Create an Account</router-link> </p>
 
 
-  
+        </v-form>
+      </v-card-text>
+    </v-card>
+  </v-container>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'Login',
+
+  data() {
+    return {
+      email: '',
+      password: '',
+    };
+  },
+
+  methods: {
+    login() {
+      axios.post('http://127.0.0.1:8000/login', {
+        email: this.email,
+        password: this.password
+      }).then(response => {
+        console.log('Logged in successfully', response);
+        alert('Logged in successfully!');
+        this.$router.push('/dashboard'); // Redirect to dashboard after successful login
+      }).catch(error => {
+        console.error('Login error', error.response.data);
+        alert('Login failed! Please check your credentials and try again.');
+      });
+    }
+  }
 };
 </script>
+<style scoped>
+.login {
+  padding: 20px;
+}
+</style>

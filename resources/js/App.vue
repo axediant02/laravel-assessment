@@ -1,16 +1,16 @@
 <template>
     <div id="app">
       <Navbar />
-      <route-view/>
-      <router-view/>  
-
+      <router-view/> 
+      
     </div>
   </template>
   
   <script>
   import Navbar from './Pages/Nav.vue';
   import Login from './Pages/Login.vue';
-  import Signup from './Pages/Signup.vue';  
+  import Signup from './Pages/Signup.vue';
+  import Dashboard from './Pages/Dashboard.vue';
 
 
   export default {
@@ -18,7 +18,8 @@
     components: {
       Login,
       Signup,
-      Navbar
+      Navbar,
+      Dashboard
       } 
   }
   </script>

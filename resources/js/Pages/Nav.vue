@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar flex bg-gray-800 text-white justify-end h-20 text-2xl sticky top-0 z-50">
     
-          <img class="pl-10" src="/resources/assets/newLogo.jpg" alt="" srcset="">
+          <img class="pl-10" src="/resources/assets/logo.png" alt="" srcset="">
         <div class="navbar-menu container mx-auto flex justify-between items-center">
           <div class="navbar-end text-lg font-semibold">
             <router-link to="/" class="navbar-item">Home</router-link>

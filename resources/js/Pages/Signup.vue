@@ -1,34 +1,24 @@
 <template>
-  <v-container>
-    <v-card class="mx-auto" max-width="400">
-      <v-card-title class="primary">
-        <span class="headline">Register</span>
-      </v-card-title>
-
+  <v-container class="d-flex justify-center p-5">
+    <v-card class="w-50">
+      <v-card-title tag="h1" class="fw-bold">Sign Up</v-card-title>
       <v-card-text>
-        <v-form @submit.prevent="submitForm">
-          <v-text-field
-            v-model="form.name"
-            label="Name"
-            required
-          ></v-text-field>
+        <v-form @submit.prevent="signUp">
+          <v-text-field v-model="name" label="Name" required></v-text-field>
+          <v-text-field v-model="email" label="Email" required></v-text-field>
+          <v-text-field v-model="password" label="Password" type="password" required></v-text-field>
+          <v-text-field v-model="password_confirmation" label="Confirm Password" type="password" required></v-text-field>
 
-          <v-text-field
-            v-model="form.email"
-            label="Email"
-            type="email"
-            required
-          ></v-text-field>
+          <v-btn color="primary" type="submit">Sign Up</v-btn>
 
-          <v-text-field
-            v-model="form.password"
-            label="Password"
-            type="password"
-            required
-          ></v-text-field>
+          <p>Already have an account? <router-link to="/login">Login</router-link></p>
 
-          <v-btn type="submit" color="primary">Register</v-btn>
-          <text-body-2 class="w-100">Already Have an Account? <a href="" class="text-blue">Log-in</a></text-body-2>
+          <!-- Display errors -->
+          <div v-if="errors.length" class="mt-3">
+            <ul>
+              <li v-for="error in errors" :key="error" class="text-red-500">{{ error }}</li>
+            </ul>
+          </div>
         </v-form>
       </v-card-text>
     </v-card>
@@ -36,27 +26,44 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
+  name: 'Signup',
+
   data() {
     return {
-      form: {
-        name: '',
-        email: '',
-        password: ''
-      }
-    }
+      name: '',
+      email: '',
+      password: '',
+      password_confirmation: '',
+      errors: [],
+    };
   },
+
   methods: {
-    submitForm() {
-      // Here you would handle form submission, e.g., send data to server
-      console.log('Form submitted:', this.form);
-      // Reset form fields after submission (if needed)
-      this.form.name = '';
-      this.form.email = '';
-      this.form.password = '';
+    signUp() {
+      this.errors = [];  // Clear previous errors
+      axios.post('http://127.0.0.1:8000/signup', {
+        name: this.name,
+        email: this.email,
+        password: this.password,
+        password_confirmation: this.password_confirmation
+      }).then(response => {
+        console.log('Signed up successfully', response);
+        alert('Account created successfully! Please log in.');
+        this.$router.push('/login');
+      }).catch(error => {
+        console.error('Sign-up error', error.response.data);
+        if (error.response.data.errors) {
+          this.errors = Object.values(error.response.data.errors).flat();
+        } else {
+          this.errors.push('An unexpected error occurred.');
+        }
+      });
     }
   }
-}
+};
 </script>
 
 <style scoped>

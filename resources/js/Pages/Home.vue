@@ -193,8 +193,7 @@
                                     <section id="contact" class="text-center">
                                         <h2 class="text-3xl mb-8">Contact Us</h2>
                                         <form @submit.prevent="submitForm" class="flex flex-col space-y-4 items-center text-black">
-                                            <input
-                                                v-model="form.name"
+                                            <input v-model="form.name"
                                                 type="text"
                                                 name="name"
                                                 placeholder="Name"
@@ -284,7 +283,32 @@
                             </footer>
                         </template>
 
-                        <script src="resources/js/scroll.js"></script>
+                        <script>
+                    export default {
+  name: 'ContactForm',
+  data() {
+    return {
+      form: {
+        name: '',
+        email: '',
+        message: ''
+      }
+    };
+  },
+  methods: {
+    submitForm() {
+      console.log('Form submitted:', this.form);
+      // Add your form submission logic here, e.g., an API call
+      // Reset form after submission
+      this.form = {
+        name: '',
+        email: '',
+        message: ''
+      };
+    }
+  }
+};
+                        </script>
 
                         <style scoped="scoped">
                             html {
