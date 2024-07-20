@@ -19,7 +19,8 @@
     </head>
     <body class="font-sans antialiased dark:text-white/50">
 
-    <div id="app"></div>
+    <div id="app"><users-table></users-table></div>
     <div id="footer"></div>
+    <script src="{{ mix('js/app.js') }}"></script>
     </body>
 </html>

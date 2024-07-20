@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\loginController;
+use App\Http\Controllers\UserController;
+
 
 Route::get('/', function () {
     return view('app');
@@ -22,3 +24,5 @@ Route::get('/dashboard', function () {
 
 Route::post('/login', [loginController::class, 'login']);
 Route::post('/signup', [RegisterController::class, 'register']);
+
+Route::get('/api/users', [UserController::class, 'getUsers']);

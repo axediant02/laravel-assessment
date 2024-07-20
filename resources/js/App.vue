@@ -11,8 +11,6 @@
   import Login from './Pages/Login.vue';
   import Signup from './Pages/Signup.vue';
  
-
-
   export default {
     name: 'App',
     components: {
